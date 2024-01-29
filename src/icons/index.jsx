@@ -5,7 +5,7 @@ export const menuIcon = (
     viewBox="0 0 24 24"
     strokeWidth="1.5"
     stroke="currentColor"
-    className="w-6 h-6 text-D-G cursor-pointer"
+    className="w-6 h-6 text-D-G"
   >
     <path
       strokeLinecap="round"
@@ -22,7 +22,7 @@ export const backIcon = (
     viewBox="0 0 24 24"
     strokeWidth="1.5"
     stroke="currentColor"
-    className="w-6 h-6 text-D-G cursor-pointer"
+    className="w-6 h-6 text-D-G"
   >
     <path
       strokeLinecap="round"

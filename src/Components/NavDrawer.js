@@ -18,29 +18,28 @@ const NavDrawer = ({ children }) => {
         className={`${isOpen ? "max-w-[500px]" : "max-w-0"}
         overflow-auto transition-all duration-500 ease-in-out h-screen bg-white z-20 fixed`}
       >
-        <div className="border-4 border-D-G rounded-lg p-2 w-fit h-full">
+        <div className="border-4 border-D-G rounded-lg p-2 h-full space-y-2">
           {/* Botón para cerrar el menú */}
-          <button
-            className="w-fit p-1 w-8 h-8 duration-300 ease-in-out"
-            onClick={() => setIsOpen(false)}
-          >
+          <button className="p-1 w-8 h-10" onClick={() => setIsOpen(false)}>
             {backIcon}
           </button>
-           {/* Contenido del menú */}
+          {/* Contenido del menú */}
+
           <div>
-            <div className="px-4 pb-4">
-              <div className="grid grid-rows-4 gap-4">
-                <div>
-                  <Link className="flex items-center gap-7 border-2 border-black" href={""}>
-                    {homeIcon}
-                    Inicio
-                  </Link>
-                </div>
-              </div>
-            </div>
+            <Link className="flex items-center gap-2 m-4 text-D-G" href={""}>
+              {homeIcon}
+              Inicio
+            </Link>
+          </div>
+          <div>
+            <Link className="flex items-center gap-2 m-4 text-D-G" href={""}>
+              {homeIcon}
+              calificanos
+            </Link>
           </div>
         </div>
       </div>
+      <div className="w-full">{children}</div>
     </div>
   );
 };
