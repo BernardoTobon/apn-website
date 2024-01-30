@@ -6,7 +6,7 @@ const Login = () => {
     <div className="grid grid-cols-1 lg:grid-cols-2 relative">
       <div className="md:bg-cover lg:bg-cover h-screen bg-left bg-[url('/apn.png')] h-[250px] lg:h-screen">
         <h1 className="flex justify-center text-D-G m-8 font-bold text-2xl lg:hidden">
-          Andres Power Nutrition
+        ANDRÉS POWER NUTRTION
         </h1>
       </div>
       <form onSubmit={handleSubmit((data) => {
@@ -16,11 +16,11 @@ const Login = () => {
         <div className="flex flex-col items-center justify-center absolute h-screen w-full lg:relative top-0">
           <div className="rounded-lg overflow-hidden bg-white lg:w-full w-[90%] h-[60%] flex flex-col items-center border sm:border-1 md:border-none lg:border-none">
             <h1 className="text-[18px] lg:text-[25.5px] text-D-G font-semibold lg:pt-20 m-4">
-              Log In
+              Iniciar sesión
             </h1>
             <div className="flex flex-col w-full lg:w-[70%] px-4 gap-2">
               <h4 className="text-sm text-D-G font-bold ">
-                Correo Electronico
+                Correo electronico
               </h4>
               <input
                 {...register("correoElectronico", { required: true })}

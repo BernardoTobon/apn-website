@@ -1,9 +1,23 @@
-import { backIcon, homeIcon, menuIcon } from "@/icons";
+import {
+  backIcon,
+  calendarIcon,
+  hashtagsIcon,
+  homeIcon,
+  menuIcon,
+  recipeIcon,
+  userIcon,
+} from "@/icons";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const NavDrawer = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+  const isLoginPage = router.pathname === '/login/login';
+  if(isLoginPage) {
+    return children
+  }
   return (
     <div className="flex">
       {/* Icono para abrir el menú */}
@@ -24,18 +38,37 @@ const NavDrawer = ({ children }) => {
             {backIcon}
           </button>
           {/* Contenido del menú */}
-
-          <div>
-            <Link className="flex items-center gap-2 m-4 text-D-G" href={""}>
-              {homeIcon}
-              Inicio
-            </Link>
-          </div>
-          <div>
-            <Link className="flex items-center gap-2 m-4 text-D-G" href={""}>
-              {homeIcon}
-              calificanos
-            </Link>
+          <div className="pt-12 space-y-8 m-2">
+            <div>
+              <Link className="flex items-center gap-2 m-4 text-D-G" href={""}>
+                {homeIcon}
+                Inicio
+              </Link>
+            </div>
+            <div>
+              <Link className="flex items-center gap-2 m-4 text-D-G" href={""}>
+                {userIcon}
+                Usuarios
+              </Link>
+            </div>
+            <div>
+              <Link className="flex items-center gap-2 m-4 text-D-G" href={""}>
+                {recipeIcon}
+                Mis Recetas
+              </Link>
+            </div>
+            <div>
+              <Link className="flex items-center gap-2 m-4 text-D-G" href={""}>
+                {calendarIcon}
+                Calendario
+              </Link>
+            </div>
+            <div>
+              <Link className="flex items-center gap-2 m-4 text-D-G" href={""}>
+                {hashtagsIcon}
+                Hashtags
+              </Link>
+            </div>
           </div>
         </div>
       </div>
