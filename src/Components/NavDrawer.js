@@ -22,7 +22,7 @@ const NavDrawer = ({ children }) => {
     <div className="flex">
       {/* Icono para abrir el menú */}
       <button
-        className="absolute z-20  w-8 h-8"
+        className="absolute w-8 h-8"
         onClick={() => setIsOpen(true)}
       >
         {menuIcon}
@@ -30,7 +30,7 @@ const NavDrawer = ({ children }) => {
       {/* Contenedor del menú desplegable */}
       <div
         className={`${isOpen ? "max-w-[500px]" : "max-w-0"}
-        overflow-auto transition-all duration-500 ease-in-out h-screen bg-white z-20 fixed`}
+        overflow-auto transition-all duration-500 ease-in-out h-screen bg-white fixed`}
       >
         <div className="border-4 border-D-G rounded-lg p-2 h-full space-y-2">
           {/* Botón para cerrar el menú */}
