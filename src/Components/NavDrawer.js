@@ -4,6 +4,7 @@ import {
   hashtagsIcon,
   homeIcon,
   menuIcon,
+  newUserIcon,
   recipeIcon,
   userIcon,
 } from "@/icons";
@@ -43,6 +44,12 @@ const NavDrawer = ({ children }) => {
               <Link className="flex items-center gap-2 m-4 text-D-G" href={""}>
                 {homeIcon}
                 Inicio
+              </Link>
+            </div>
+            <div>
+              <Link className="flex items-center gap-2 m-4 text-D-G" href={""}>
+                {newUserIcon}
+                Nuevo usuario
               </Link>
             </div>
             <div>
