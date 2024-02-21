@@ -30,7 +30,7 @@ const Diameters = () => {
     }
   }, [videoVisible]);
 
-  return (
+  return ( 
     <div className="grid grid-cols-1 md:grid-cols-2">
       <div className="flex flex-col">
         {videoVisible && (
@@ -139,7 +139,7 @@ const Diameters = () => {
           )}
         </div>
       </div>
-      <div className="pl-2 md:pl-64 pt-8">
+      <div className="pl-2 pt-8">
         <form
           onSubmit={handleSubmit((data) => {
             console.log(data);
