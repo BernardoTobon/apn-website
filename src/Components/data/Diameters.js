@@ -11,7 +11,7 @@ const Diameters = () => {
   const [anteroposteriorThorax, setAnteroPosteriorThorax] = useState("");
   const [humerus, setHumerus] = useState("");
   const [wristBistyloid, setWristBistyloid] = useState("");
-  const [bicondyleFemur, setBicondyleFemur] = useState("");
+  const [femur, setFemur] = useState("");
   const [bimalleolar, setBimalleolar] = useState("");
   const [transverseFoot, setTransverseFoot] = useState("");
   const [handLenght, setHandLenght] = useState("");
@@ -36,7 +36,7 @@ const Diameters = () => {
         {videoVisible && (
           <div className="flex justify-center pt-4">
             <video
-              className="h-96"
+              className="h-96 w-72"
               ref={videoRef}
               src={
                 videoVisible === "biacromial"
@@ -53,6 +53,16 @@ const Diameters = () => {
                   ? "/Video2.mp4"
                   : videoVisible === "biestiloideoDeLaMuñeca"
                   ? "/Video1.mp4"
+                  : videoVisible === "femur"
+                  ? "/Video2.mp4"
+                  : videoVisible === "bimaleolar"
+                  ? "/Video1.mp4"
+                  : videoVisible === "transversoDelPie"
+                  ? "/Video1.mp4"
+                  : videoVisible === "longitudDeLaMano"
+                  ? "/Video2.mp4"
+                  : videoVisible === "transversoDeLaMano"
+                  ? "/Video1.mp4"
                   : videoVisible
               }
               autoPlay
@@ -61,7 +71,7 @@ const Diameters = () => {
             />
           </div>
         )}
-        <div className="pt-4 m-3 flex justify-center">
+        <div className=" m-4 flex justify-center">
           {paragraphVisible === "biacromial" ? (
             <p>
               Es la distancia entre el punto acromial derecho y el izquierdo.
@@ -100,8 +110,32 @@ const Diameters = () => {
               <br />
               <b>Se usa para cálculo de la masa ósea.</b>
             </p>
+          ) : paragraphVisible === "femur" ? (
+            <p>
+              Es la distancia entre el cóndilo medial y lateral del fémur. El
+              sujeto debrá estar sentado con una flexión de rodilla de 90°.
+              <br />
+              <b>Se usa para cálculo del somatotipo y de la masa ósea.</b>
+            </p>
+          ) : paragraphVisible === "bimaleolar" ? (
+            <p>
+              Es la distancia entre el maleolar tibial y el peroneo. La
+              articulación del tobillo debe tener 90° de flexión.
+            </p>
+          ) : paragraphVisible === "transversoDelPie" ? (
+            <p>
+              Es la distancia entre el punto metatarsiano tibial y peroneal.
+            </p>
+          ) : paragraphVisible === "longitudDeLaMano" ? (
+            <p>
+              Es la distancia entre el punto medio biestiloideo y el punto dedal
+              medio.
+            </p>
           ) : (
-            paragraphVisible
+            paragraphVisible === "transversoDeLaMano" ? (
+              <p>Es la distancia entre el punto metacarpiano lateral y medial.</p>
+            )
+            : paragraphVisible
           )}
         </div>
       </div>
@@ -111,7 +145,7 @@ const Diameters = () => {
             console.log(data);
           })}
         >
-          <div className="grid grid-cols-2 md:grid-cols-1">
+          <div className="grid grid-cols-2 md:grid-cols-2">
             <div className="m-1">
               <div>
                 <label htmlFor="biacromial" className="text-D-G">
@@ -120,7 +154,7 @@ const Diameters = () => {
               </div>
               <input
                 {...register("biacromial", { required: true })}
-                className="m-1 text-center w-16 md:w-64 focus:outline-none border border-2 border-F-G rounded-lg"
+                className="m-1 text-center w-16 md:w-32 focus:outline-none  border-2 border-F-G rounded-lg"
                 value={biacromial}
                 type="text"
                 id="biacromial"
@@ -139,7 +173,7 @@ const Diameters = () => {
               </div>
               <input
                 {...register("biiliocrestal", { required: true })}
-                className="m-1 text-center w-16 md:w-64 focus:outline-none border border-2 border-F-G rounded-lg"
+                className="m-1 text-center w-16 md:w-32 focus:outline-none  border-2 border-F-G rounded-lg"
                 value={biiliocrestal}
                 type="text"
                 id="biiliocrestal"
@@ -158,7 +192,7 @@ const Diameters = () => {
               </div>
               <input
                 {...register("longitudDelPie", { required: true })}
-                className="m-1 text-center w-16 md:w-64 focus:outline-none border border-2 border-F-G rounded-lg"
+                className="m-1 text-center w-16 md:w-32 focus:outline-none  border-2 border-F-G rounded-lg"
                 value={footLenght}
                 type="text"
                 id="longitudDelPie"
@@ -177,7 +211,7 @@ const Diameters = () => {
               </div>
               <input
                 {...register("transversoDelTorax", { required: true })}
-                className="m-1 text-center w-16 md:w-64 focus:outline-none border border-2 border-F-G rounded-lg"
+                className="m-1 text-center w-16 md:w-32 focus:outline-none  border-2 border-F-G rounded-lg"
                 value={transverseThorax}
                 type="text"
                 id="transversoDelTorax"
@@ -196,7 +230,7 @@ const Diameters = () => {
               </div>
               <input
                 {...register("anteroposteriorDelTorax", { required: true })}
-                className="m-1 text-center w-16 md:w-64 focus:outline-none border border-2 border-F-G rounded-lg"
+                className="m-1 text-center w-16 md:w-32 focus:outline-none  border-2 border-F-G rounded-lg"
                 value={anteroposteriorThorax}
                 type="text"
                 id="anteroposteriorDelTorax"
@@ -215,7 +249,7 @@ const Diameters = () => {
               </div>
               <input
                 {...register("humero", { required: true })}
-                className="m-1 text-center w-16 md:w-64 focus:outline-none border border-2 border-F-G rounded-lg"
+                className="m-1 text-center w-16 md:w-32 focus:outline-none  border-2 border-F-G rounded-lg"
                 value={humerus}
                 type="text"
                 id="humero"
@@ -226,23 +260,118 @@ const Diameters = () => {
                 }}
               />
             </div>
-          </div>
-          <div className="m-1">
-            <div>
-              <label htmlFor="biestiloideoDeLaMuñeca"
-              className="text-D-G">Biestiloideo de la muñeca</label>
+
+            <div className="m-1">
+              <div>
+                <label htmlFor="biestiloideoDeLaMuñeca" className="text-D-G">
+                  Biestiloideo de la muñeca
+                </label>
+              </div>
+              <input
+                {...register("biestiloideoDelaMuñeca")}
+                className="m-1 text-center w-16 md:w-32 focus:outline-none border-2 border-F-G rounded-lg"
+                value={wristBistyloid}
+                type="text"
+                id="biestiloideoDeLaMuñeca"
+                onChange={(e) => setWristBistyloid(e.target.value)}
+                onClick={() => {
+                  handleFieldClick("biestiloideoDeLaMuñeca"),
+                    handleFieldClickParagraph("biestiloideoDeLaMuñeca");
+                }}
+              />
             </div>
-            <input {...register("biestiloideoDelaMuñeca")}
-            className="m-1 text-center w-16 md:w-64 focus:outline-none border border-2 border-F-G rounded-lg"
-            value={wristBistyloid}
-            type="text"
-            id="biestiloideoDeLaMuñeca"
-            onChange={(e) => setWristBistyloid(e.target.value)}
-            onClick={() => {
-              handleFieldClick("biestiloideoDeLaMuñeca"),
-              handleFieldClickParagraph("biestiloideoDeLaMuñeca")
-            }}
-            />
+            <div className="m-1">
+              <div>
+                <label htmlFor="femur" className="text-D-G">
+                  Fémur
+                </label>
+              </div>
+              <input
+                {...register("femur", { required: true })}
+                className="m-1 text-center w-16 md:w-32 focus:outline-none  border-2 border-F-G rounded-lg"
+                value={femur}
+                type="text"
+                id="femur"
+                onChange={(e) => setFemur(e.target.value)}
+                onClick={() => {
+                  handleFieldClick("femur"), handleFieldClickParagraph("femur");
+                }}
+              />
+            </div>
+            <div className="m-1">
+              <div>
+                <label htmlFor="bimaleolar" className="text-D-G">
+                  Bimaleolar
+                </label>
+              </div>
+              <input
+                {...register("bimaleolar", { required: true })}
+                className="m-1 text-center w-16 md:w-32 focus:outline-none border-2 border-F-G rounded-lg"
+                value={bimalleolar}
+                type="text"
+                id="bimaleolar"
+                onChange={(e) => setBimalleolar(e.target.value)}
+                onClick={() => {
+                  handleFieldClick("bimaleolar"),
+                    handleFieldClickParagraph("bimaleolar");
+                }}
+              />
+            </div>
+            <div className="m-1">
+              <div>
+                <label htmlFor="transversoDelPie" className="text-D-G">
+                  Transverso del pie
+                </label>
+              </div>
+              <input
+                {...register("transversoDelPie", { required: true })}
+                className="m-1 text-center w-16 md:w-32 focus:outline-none  border-2 border-F-G rounded-lg"
+                value={transverseFoot}
+                type="text"
+                id="transversoDelPie"
+                onChange={(e) => setTransverseFoot(e.target.value)}
+                onClick={() => {
+                  handleFieldClick("transversoDelPie"),
+                    handleFieldClickParagraph("transversoDelPie");
+                }}
+              />
+            </div>
+            <div className="m-1">
+              <div>
+                <label htmlFor="longitudDeLaMano" className="text-D-G">
+                  Longitud mano
+                </label>
+              </div>
+              <input
+                {...register("longitudDeLaMano", { required: true })}
+                className="m-1 text-center w-16 md:w-32 focus:outline-none  border-2 border-F-G rounded-lg"
+                value={handLenght}
+                type="text"
+                id="longitudDeLaMano"
+                onChange={(e) => setHandLenght(e.target.value)}
+                onClick={() => {
+                  handleFieldClick("longitudDeLaMano"),
+                    handleFieldClickParagraph("longitudDeLaMano");
+                }}
+              />
+            </div>
+            <div className="m-1">
+              <div>
+                <label htmlFor="transversoDeLaMano"
+                className="text-D-G">Transverso de la mano</label>
+              </div>
+              <input {...register("transversoDeLaMano",{required:true})}
+              className="m-1 text-center w-16 md:w-32 focus:outline-none  border-2 border-F-G rounded-lg"
+              value={transverseHand}
+              type="text"
+              id="transversoDeLaMano"
+              onChange={(e) => setTransversehand(e.target.value)}
+              onClick={() => {
+                handleFieldClick("transversoDeLaMano"),
+                handleFieldClickParagraph("transversoDeLaMano")
+              }}
+              />
+            </div>
           </div>
           <input
             type="submit"
