@@ -10,7 +10,7 @@ const Lobby = () => {
         />
       </div>
       <div className="flex justify-center">
-        <div className="flex justify-center flex-col grid grid-cols-2 space-x-2 m-2">
+        <div className="justify-center flex-col grid grid-cols-2 space-x-2 m-2">
           <Link
             className="text-center  border-2 border-D-G w-24 text-D-G rounded-full border-r-0 border-l-0 border-t-0 hover:border-T-G hover:border-t-2"
             href={""}
