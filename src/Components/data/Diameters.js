@@ -30,7 +30,7 @@ const Diameters = () => {
     }
   }, [videoVisible]);
 
-  return ( 
+  return (
     <div className="grid grid-cols-1 md:grid-cols-2">
       <div className="flex flex-col">
         {videoVisible && (
@@ -131,11 +131,10 @@ const Diameters = () => {
               Es la distancia entre el punto medio biestiloideo y el punto dedal
               medio.
             </p>
+          ) : paragraphVisible === "transversoDeLaMano" ? (
+            <p>Es la distancia entre el punto metacarpiano lateral y medial.</p>
           ) : (
-            paragraphVisible === "transversoDeLaMano" ? (
-              <p>Es la distancia entre el punto metacarpiano lateral y medial.</p>
-            )
-            : paragraphVisible
+            paragraphVisible
           )}
         </div>
       </div>
@@ -357,19 +356,21 @@ const Diameters = () => {
             </div>
             <div className="m-1">
               <div>
-                <label htmlFor="transversoDeLaMano"
-                className="text-D-G">Transverso de la mano</label>
+                <label htmlFor="transversoDeLaMano" className="text-D-G">
+                  Transverso de la mano
+                </label>
               </div>
-              <input {...register("transversoDeLaMano",{required:true})}
-              className="m-1 text-center w-16 md:w-32 focus:outline-none  border-2 border-F-G rounded-lg"
-              value={transverseHand}
-              type="text"
-              id="transversoDeLaMano"
-              onChange={(e) => setTransversehand(e.target.value)}
-              onClick={() => {
-                handleFieldClick("transversoDeLaMano"),
-                handleFieldClickParagraph("transversoDeLaMano")
-              }}
+              <input
+                {...register("transversoDeLaMano", { required: true })}
+                className="m-1 text-center w-16 md:w-32 focus:outline-none  border-2 border-F-G rounded-lg"
+                value={transverseHand}
+                type="text"
+                id="transversoDeLaMano"
+                onChange={(e) => setTransversehand(e.target.value)}
+                onClick={() => {
+                  handleFieldClick("transversoDeLaMano"),
+                    handleFieldClickParagraph("transversoDeLaMano");
+                }}
               />
             </div>
           </div>
