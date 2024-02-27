@@ -4,7 +4,7 @@ const Login = () => {
   const { register, handleSubmit } = useForm();
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 relative">
-      <div className="md:bg-cover lg:bg-cover h-screen bg-left bg-[url('/apn.png')] h-[250px] lg:h-screen">
+      <div className="md:bg-cover lg:bg-cover  bg-left bg-[url('/apn.png')] h-[250px] lg:h-screen">
         <h1 className="flex justify-center text-D-G m-8 font-bold text-2xl lg:hidden">
           ANDRÉS POWER NUTRTION
         </h1>
@@ -27,7 +27,7 @@ const Login = () => {
                 {...register("correoElectronico", { required: true })}
                 type="email"
                 id="correoElectronico"
-                className="border border-2 rounded-full text-center text-D-G h-9 hover:border-F-G border-T-G focus:outline-none"
+                className=" border-2 rounded-full text-center text-D-G h-9 hover:border-F-G border-T-G focus:outline-none"
               />
             </div>
             <div className="flex flex-col w-full lg:w-[70%] px-4 gap-2">
@@ -36,7 +36,7 @@ const Login = () => {
                 {...register("contraseña", { required: true })}
                 type="password"
                 id="contraseña"
-                className="border border-2 rounded-full text-center text-D-G h-9 hover:border-F-G border-T-G focus:outline-none"
+                className=" border-2 rounded-full text-center text-D-G h-9 hover:border-F-G border-T-G focus:outline-none"
               />
             </div>
             <input
