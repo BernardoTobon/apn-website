@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import { Chart } from "chart.js/auto";    
 import { useForm } from "react-hook-form";
+import { saveIcon } from "@/icons";
 
 export default function ImcGraphics() {
   const [height, setHeight] = useState("");
@@ -89,10 +90,12 @@ export default function ImcGraphics() {
             />
           </div>
           <div className="flex justify-center">
-            <input
-              type="submit"
-              className="text-D-G bg-T-G rounded-full w-28 h-10 mt-4 hover:bg-F-G hover:text-white"
-            />
+          <button
+            type="submit"
+            className="flex justify-center text-D-G bg-T-G rounded-full w-16 h-10 pt-1 hover:bg-F-G hover:text-white"
+          >
+            {saveIcon}
+          </button>
           </div>
         </form>
         <div className="flex justify-center h-96 p-4 border-2 order-1 md:order-2">

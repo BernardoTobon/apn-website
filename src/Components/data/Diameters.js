@@ -1,3 +1,4 @@
+import { saveIcon } from "@/icons";
 import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 const Diameters = () => {
@@ -374,10 +375,12 @@ const Diameters = () => {
               />
             </div>
           </div>
-          <input
+          <button
             type="submit"
-            className="text-D-G bg-T-G rounded-full w-28 h-10 mt-4 hover:bg-F-G hover:text-white"
-          />
+            className="flex justify-center text-D-G bg-T-G rounded-full w-16 h-10 pt-1 hover:bg-F-G hover:text-white"
+          >
+            {saveIcon}
+          </button>
         </form>
       </div>
     </div>
