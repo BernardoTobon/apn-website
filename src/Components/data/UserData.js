@@ -11,33 +11,29 @@ import {
   icIcon,
   infoIcon,
   phoneIcon,
+  saveIcon,
 } from "@/icons";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "@/firebase";
+import { v4 as uuidv4 } from "uuid";
 
-const AvatarGender = ({ gender }) => {
-  return (
-    <>
-      {gender == "Hombre" ? (
-        <img src="/MaleGender.png" />
-      ) : (
-        <img src="FemaleGender.png" />
-      )}
-    </>
-  );
-};
 
 const UserData = () => {
   const { register, handleSubmit, control } = useForm();
-  const [gender, setGender] = useState("Hombre");
-  const handleToChange = (event) => {
-    setGender(event.target.value);
+  const [loading, setLoading] = useState(false);
+  const setData = (data) => {
+    if (loading) return alert("Guardando");
+    setLoading(true);
+    setDoc(doc(db, "datos_de_identidad", uuidv4()), data)
+      .then((res) => console.log("res", res))
+      .catch((er) => console.log("er", er))
+      .finally(() => setLoading(false));
   };
+
   return (
     <div className="p-1 flex items-center flex-col">
-      <div className="w-24 h-24 p-1">
-        {gender && <AvatarGender gender={gender} />}
-      </div>
       <div className="pb-6">
         <h1 className="flex justify-center font-bold text-2xl text-transparent bg-clip-text bg-gradient-to-r from-L-B to-D-G ">
           Datos de identidad
@@ -46,6 +42,7 @@ const UserData = () => {
       <form
         onSubmit={handleSubmit((data) => {
           console.log(data);
+          setData(data)
         })}
         className="grid grid-cols-1 lg:grid-cols-4"
       >
@@ -139,7 +136,6 @@ const UserData = () => {
           <select
             {...register("genero", { required: true })}
             id="genero"
-            onChange={handleToChange}
             className="text-center text-D-G border-2 border-D-G focus:outline-none rounded-lg m-1"
           >
             {GENDER.map((item, index) => (
@@ -241,10 +237,14 @@ const UserData = () => {
             type="text"
           />
         </div>
-        <input
+        
+        <button
           type="submit"
-          className="text-D-G bg-T-G rounded-full w-28 h-10 mt-4 hover:bg-F-G hover:text-white col-span-full mx-auto"
-        />
+          className="flex justify-center text-D-G bg-T-G rounded-full w-16 h-10 pt-1 mt-10
+           hover:bg-F-G hover:text-white"
+        >
+          {saveIcon}
+        </button>
       </form>
     </div>
   );
