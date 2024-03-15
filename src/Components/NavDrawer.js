@@ -41,13 +41,13 @@ const NavDrawer = ({ children }) => {
           {/* Contenido del menú */}
           <div className="pt-12 space-y-8 m-2">
             <div>
-              <Link className="flex items-center gap-2 m-4 text-D-G" href={""}>
+              <Link className="flex items-center gap-2 m-4 text-D-G" href={"/user/lobby"}>
                 {homeIcon}
                 Inicio
               </Link>
             </div>
             <div>
-              <Link className="flex items-center gap-2 m-4 text-D-G" href={""}>
+              <Link className="flex items-center gap-2 m-4 text-D-G" href={"/user/adduser"}>
                 {newUserIcon}
                 Nuevo usuario
               </Link>
