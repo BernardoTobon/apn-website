@@ -21,7 +21,7 @@ import { v4 as uuidv4 } from "uuid";
 
 
 const UserData = () => {
-  const { register, handleSubmit, control } = useForm();
+  const { register, handleSubmit } = useForm();
   const [loading, setLoading] = useState(false);
   const setData = (data) => {
     if (loading) return alert("Guardando");

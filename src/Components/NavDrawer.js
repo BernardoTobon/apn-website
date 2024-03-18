@@ -47,7 +47,7 @@ const NavDrawer = ({ children }) => {
               </Link>
             </div>
             <div>
-              <Link className="flex items-center gap-2 m-4 text-D-G" href={"/user/adduser"}>
+              <Link className="flex items-center gap-2 m-4 text-D-G" href={"/user/userdata"}>
                 {newUserIcon}
                 Nuevo usuario
               </Link>
